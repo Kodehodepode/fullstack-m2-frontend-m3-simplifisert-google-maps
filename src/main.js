@@ -9,6 +9,7 @@ import markerIconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
 import markerShadowUrl from 'leaflet/dist/images/marker-shadow.png';
 
 const geoCodeURL = "https://api.geoapify.com/v1/geocode/search";
+const placesURL = "https://api.geoapify.com/v2/places";
 const geoApifyKey = import.meta.env.VITE_GeoApify_KEY
 
 
@@ -38,11 +39,18 @@ L.marker([51.505, -0.09]).addTo(map)
 const searchButton = document.getElementById("search-button");
 const searchInput = document.getElementById("search-input");
 searchButton.addEventListener("click", async (event) => {
+
+  const coordinates = await getCoordinates(searchInput.value);
+
+  map.setView(coordinates, 13);
+});
+
+const getCoordinates = async (searchText) => {
   const url = new URL(geoCodeURL);
 
   const params = {
     apiKey: geoApifyKey,
-    text: searchInput.value
+    text: searchText
   };
   url.search = new URLSearchParams(params).toString();
 
@@ -52,5 +60,5 @@ searchButton.addEventListener("click", async (event) => {
   const data = await response.json();
   const coordinates = data.features[0].geometry.coordinates.toReversed();
 
-  map.setView(coordinates, 13);
-});
+  return coordinates;
+}
