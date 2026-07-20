@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="no">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
@@ -7,7 +7,28 @@
     <title>fullstack-m2-frontend-m3-simplifisert-google-maps</title>
   </head>
   <body>
+    <header>
+      <nav>
+        <form id="navigation-form">
+        <div class="search">
+          <label>Stedsnavn</label>
+          <input type="text" id="search">
+        </div>
+        <div class="filters">
+          <label><input type="checkbox" name="commercial.gas">Bensinstasjoner</label>
+          <label><input type="checkbox" name="accomodation">Overnatting</label>
+          <label><input type="checkbox" name="catering">Spisesteder</label>
+          <label><input type="checkbox" name="entertainment">Opplevelser</label>
+        </div>
+        </form>
+      </nav>
+    </header>
+    <main>
     <div id="map"></div>
+    </main>
+    <footer>
+
+    </footer>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

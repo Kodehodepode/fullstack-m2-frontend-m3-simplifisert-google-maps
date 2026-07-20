@@ -5,6 +5,23 @@
   box-sizing: border-box;
 }
 
+#navigation-form {
+  display: flex;
+  div.search {
+    margin: 8px;
+  }
+  div.filters {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    margin: 8px;
+    
+    input {
+      margin-right: 6px;
+    }
+  }
+}
+
 #map {
   height: 500px; /* Or 100vh for full screen */
   width: 100%;
