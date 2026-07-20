@@ -5,9 +5,15 @@
   box-sizing: border-box;
 }
 
-#navigation-form {
-  display: flex;
+nav {
+  display: grid;
+  grid-template-columns: auto 1fr;
+
+  h2 { padding: 0 8px; }
+
   div.search {
+    grid-column: 0 / 1;
+    grid-row: 2 / 3;
     margin: 8px;
     button { padding: 0 8px; }
   }
