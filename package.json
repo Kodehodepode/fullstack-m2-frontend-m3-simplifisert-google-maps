@@ -1,0 +1,14 @@
+{
+  "name": "fullstack-m2-frontend-m3-simplifisert-google-maps",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^8.1.1"
+  }
+}
