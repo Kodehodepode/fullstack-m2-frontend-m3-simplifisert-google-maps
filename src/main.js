@@ -22,6 +22,8 @@ L.Icon.Default.mergeOptions({
 
 // Initialize Map
 const map = L.map('map').setView([51.505, -0.09], 13); // "map" er IDen til en DIV i html-filen
+const markerGroup = L.layerGroup().addTo(map); // For å kunne slette alle markører samtidig
+map.addEventListener("moveend", event => updatePins());
 
 // Add OpenStreetMap Tiles
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -29,23 +31,23 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-/*
-// Add a Sample Marker
-L.marker([51.505, -0.09]).addTo(map)
-  .bindPopup('A pretty CSS popup.<br> Easily customizable.')
-  .openPopup();
-*/
-
 const searchButton = document.getElementById("search-button");
 const searchInput = document.getElementById("search-input");
+const categoryInputs = Array.from(document.querySelectorAll(".categories input"));
+
+categoryInputs.forEach(checkbox => checkbox.addEventListener("change", event => updatePins()));
+
 searchButton.addEventListener("click", async (event) => {
 
-  const coordinates = await getCoordinates(searchInput.value);
+  const geoCode = await getGeoCode(searchInput.value);
+
+  const coordinates = geoCode.geometry.coordinates.toReversed();
 
   map.setView(coordinates, 13);
+
 });
 
-const getCoordinates = async (searchText) => {
+const getGeoCode = async (searchText) => {
   const url = new URL(geoCodeURL);
 
   const params = {
@@ -58,7 +60,49 @@ const getCoordinates = async (searchText) => {
   if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
     
   const data = await response.json();
-  const coordinates = data.features[0].geometry.coordinates.toReversed();
 
-  return coordinates;
+  return data.features[0];
+}
+
+const getPlaces = async (categories) => {
+  const url = new URL(placesURL);
+
+  const { _northEast: ne, _southWest: sw } = map.getBounds();
+  const rect = [ne.lng, ne.lat, sw.lng, sw.lat].join(",");
+
+  const params = {
+    apiKey: geoApifyKey,
+    categories: categories,
+    filter: "rect:" + rect,
+    limit: 20
+  };
+  url.search = new URLSearchParams(params).toString();
+
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+    
+  const places = await response.json();
+
+  return places.features;
+}
+
+const updatePins = async () => {
+  markerGroup.clearLayers();
+
+  const categories = categoryInputs
+    .filter(curr => curr.checked)
+    .map(curr => curr.name)
+    .join(",");
+  
+  if (categories === "") { return }
+
+  const places = await getPlaces(categories);
+
+  places.forEach(place => {
+    const [lng, lat] = place.geometry.coordinates;
+    const marker = L.marker([lat,lng])
+      .bindPopup(place.properties.name)
+      .openPopup();
+    markerGroup.addLayer(marker);
+  });
 }

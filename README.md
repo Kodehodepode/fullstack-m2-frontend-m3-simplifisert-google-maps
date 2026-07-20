@@ -15,6 +15,10 @@ Demonstrerer burk av et rammeverk (Leaflet) og kombinasjon av flere APIer
 **GeoCode** lar oss søke opp stedsnavn og finne stedets koordinater
 **Places** gir oss informasjon om steder i nærheten av et koordinat
 
+## Gjennomføring
+
+En funksjon er laget som oppdaterer markører på karted basert på filtre / kategorier brukeren velger. Funksjonen kjøres når en kategori velges. En `event-listener` er registrert på kart-objektet som kjører funksjonen når brukeren har flyttet på kartet. En tekstboks kan spesifisere et sted brukeren ønsker å hoppe til. Når søket gjennomføres flyttes kartet til stedet navngitt i tekstboksen, og samme `event-listener` tar seg av å oppdatere markørene igjen.
+
 ## Distribusjon og sikkerhet
 
 Prosjektet publiseres til GitHub Pages

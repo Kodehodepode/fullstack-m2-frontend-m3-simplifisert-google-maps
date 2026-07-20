@@ -17,7 +17,7 @@ nav {
     margin: 8px;
     button { padding: 0 8px; }
   }
-  div.filters {
+  div.categories {
     flex-grow: 1;
     display: flex;
     justify-content: start;
