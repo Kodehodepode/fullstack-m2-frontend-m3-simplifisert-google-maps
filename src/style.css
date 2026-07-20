@@ -20,7 +20,8 @@ nav {
   div.filters {
     flex-grow: 1;
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
+    gap: 20px;
     margin: 8px;
     
     input {
