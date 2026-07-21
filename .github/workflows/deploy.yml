@@ -24,7 +24,10 @@ jobs:
           node-version: 24
           cache: 'npm' # This looks for package-lock.json right here
       - run: npm ci
-      - run: npm run build
+      - name: Build Vite App
+        env:
+          VITE_GEOAPIFY_KEY: ${{ secrets.VITE_GEOAPIFY_KEY }}
+        run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
           path: './dist' # Points directly to dist in your root directory
