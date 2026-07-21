@@ -10,7 +10,7 @@ import markerShadowUrl from 'leaflet/dist/images/marker-shadow.png';
 
 const geoCodeURL = "https://api.geoapify.com/v1/geocode/search";
 const placesURL = "https://api.geoapify.com/v2/places";
-const geoApifyKey = import.meta.env.VITE_GeoApify_KEY
+const geoApifyKey = import.meta.env.VITE_GEOAPIFY_KEY;
 
 
 delete L.Icon.Default.prototype._getIconUrl;
