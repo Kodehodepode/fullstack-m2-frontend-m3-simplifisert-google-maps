@@ -34,6 +34,6 @@ GitHub Pages lar oss ikke kjøre vår egen backend, Vite omgjør prosjektet til 
 
 API-tilbydere baserer sin vurdering av forespørslenes opphav på HTTP-headere som brukeren selv kan manipulere og det er generelt sett ikke trygt å bruke private nøkler som sluttbrukeren kan se.
 
-Nøklene er tilgjengelige via brukeres nettleser ved å inspisere HTML elementene generert av Vite. API-forespørsler som sendes må til slutt inneholde nøklene, så nøkler kan ikke være hemmelige uten å kjøre API-forespørslene fra en backend.
+Nøklene er tilgjengelige via brukeres nettleser ved å inspisere kode generert av Vite, eller overvåke nettverksforespørsler. API-forespørsler som sendes må til slutt inneholde nøklene, så nøkler kan ikke være hemmelige uten å kjøre API-forespørslene fra en backend.
 
-API-tilbyderne som brukes her, begrenser gratis-kontoers antall daglige forespørsler. Gratis-nøkler kan opprettes av hvem som helst, og stjeling av gratis-nøkler vurderes til å ha begrenset skadeomfang.
+API-tilbyderne som brukes her, begrenser gratis-kontoers antall daglige forespørsler. Gratis-nøkler kan opprettes av hvem som helst. Stjeling av gratis-nøkler er likevel uønsket men vurderes til å ha begrenset skadeomfang.
