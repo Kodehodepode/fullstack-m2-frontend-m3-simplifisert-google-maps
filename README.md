@@ -32,7 +32,7 @@ API-nøkler lagres lokalt som miljøvariabler i en `.env` fil, filen ignoreres v
 
 GitHub Pages lar oss ikke kjøre vår egen backend, Vite omgjør prosjektet til en statisk nettside. Tilgang til å bruke API-nøklene begrenses noe via API-tilbydernes konfigurasjonssider hvor prosjektets adresse er lagt til som eneste tillatte opphav.
 
-Tilbydere baserer sin vurdering av forespørslenes opphav på HTTP-headere som brukeren selv kan manipulere og det er generelt sett ikke trygt å bruke private nøkler som sluttbrukeren kan se.
+API-tilbydere baserer sin vurdering av forespørslenes opphav på HTTP-headere som brukeren selv kan manipulere og det er generelt sett ikke trygt å bruke private nøkler som sluttbrukeren kan se.
 
 Nøklene er tilgjengelige via brukeres nettleser ved å inspisere HTML elementene generert av Vite. API-forespørsler som sendes må til slutt inneholde nøklene, så nøkler kan ikke være hemmelige uten å kjøre API-forespørslene fra en backend.
 
