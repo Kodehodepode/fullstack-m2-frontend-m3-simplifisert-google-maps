@@ -11,8 +11,11 @@ Demonstrerer burk av et rammeverk (Leaflet) og kombinasjon av flere APIer
 * GeoApify Places
 
 **LeafletJS** sørger for å rendrere et interaktivt kart og lar oss plassere informasjon på kartet
+
 **OpenStreetMap** tilbyr selve kartet i form av lastbare firkanter som LeafletJS benytter seg av
+
 **GeoCode** lar oss søke opp stedsnavn og finne stedets koordinater
+
 **Places** gir oss informasjon om steder i nærheten av et koordinat
 
 ## Gjennomføring
