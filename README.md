@@ -28,7 +28,7 @@ Prosjektet publiseres til GitHub Pages ved bruk av GitHub Actions som bygger sid
 
 Vite pakker sammen og optimiserer assets, fjerner eventuell ubrukt kode, og flater ut sirkulære avhengigheter. Under bygging vurderes filstørrelser og bundles sammen avhengig av om størrelsene gjør det hensiktsmessig, for å redusere nettverkstraffikk.
 
-API-nøkler lagres lokalt som miljøvariabler i en `.env` fil, filen ignoreres ved pushing til GitHub via `.gitignore`, og gjøres tilgjengelig for GitHub Actions via GitHub Environment Secrets.
+API-nøkler lagres lokalt som miljøvariabler i en `.env` fil, filen ignoreres ved pushing til GitHub via `.gitignore`, og nøklen gjøres tilgjengelig for GitHub Actions via GitHub Environment Secrets.
 
 GitHub Pages lar oss ikke kjøre vår egen backend, Vite omgjør prosjektet til en statisk nettside. Tilgang til å bruke API-nøklene begrenses noe via API-tilbydernes konfigurasjonssider hvor prosjektets adresse er lagt til som eneste tillatte opphav.
 
