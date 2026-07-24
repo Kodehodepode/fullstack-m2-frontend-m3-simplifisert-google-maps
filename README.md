@@ -10,8 +10,6 @@ Demonstrerer burk av et rammeverk (Leaflet) og kombinasjon av flere APIer
 * GeoApify GeoCode
 * GeoApify Places
 
-**LeafletJS** sørger for å rendrere et interaktivt kart og lar oss plassere informasjon på kartet
-
 **OpenStreetMap** tilbyr selve kartet i form av lastbare firkanter som LeafletJS benytter seg av
 
 **GeoCode** lar oss søke opp stedsnavn og finne stedets koordinater
@@ -19,6 +17,8 @@ Demonstrerer burk av et rammeverk (Leaflet) og kombinasjon av flere APIer
 **Places** gir oss informasjon om steder i nærheten av et koordinat
 
 ## Stack
+
+**LeafletJS** sørger for å rendrere et interaktivt kart og lar oss plassere informasjon på kartet.
 
 **Vite** pakker sammen og optimiserer assets, fjerner eventuell ubrukt kode, og flater ut sirkulære avhengigheter. Under bygging vurderes filstørrelser og bundles sammen avhengig av om størrelsene gjør det hensiktsmessig, for å redusere nettverkstraffikk.
 
