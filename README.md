@@ -22,7 +22,7 @@ Demonstrerer burk av et rammeverk (Leaflet) og kombinasjon av flere APIer
 
 **Vite** pakker sammen og optimiserer assets, fjerner eventuell ubrukt kode, og flater ut sirkulære avhengigheter. Under bygging vurderes filstørrelser og bundles sammen avhengig av om størrelsene gjør det hensiktsmessig, for å redusere nettverkstraffikk.
 
-**GitHub Actions** bygger Vite-prosjektet ved push til repositoriet.
+**GitHub Actions** bygger Vite-prosjektet hver gang det pushes til `main` i repositoriet.
 
 Prosjektet publiseres til **GitHub Pages**.
 
@@ -30,7 +30,7 @@ Prosjektet publiseres til **GitHub Pages**.
 
 Diverse funksjoner er laget som kaller APIer for å finne informasjon om området som ses på. Disse brukes av en funksjon som oppdaterer markører på karted basert på filtre / kategorier brukeren velger. Denne funksjonen kjøres når en kategori velges. I tillegg er en `event-listener` er registrert på kart-elementet som kjører samme funksjon når brukeren har flyttet på kartet.
 
-En tekstboks kan spesifisere et sted brukeren ønsker å søke opp / hoppe til. Når søket gjennomføres flyttes kartet til stedet navngitt i tekstboksen, og `event-listener`en som trigges av flytting av kartet tar seg av å kjøre oppdatering av markørene igjen.
+En tekstboks kan spesifisere et sted brukeren ønsker å søke opp / hoppe til. Når søket gjennomføres flyttes kartet til stedet navngitt i tekstboksen, og event-listener'en som trigges av flytting av kartet tar seg av å kjøre oppdatering av markørene igjen.
 
 ## Bugs / caveats
 
