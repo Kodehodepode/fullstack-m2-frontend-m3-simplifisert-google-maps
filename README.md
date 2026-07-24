@@ -28,9 +28,9 @@ Prosjektet publiseres til **GitHub Pages**.
 
 ## Gjennomføring
 
-En funksjon er laget som benytter APIer for å finne informasjon om området som ses på. Funksjonen oppdaterer markører på karted basert på filtre / kategorier brukeren velger. Funksjonen kjøres når en kategori velges. I tillegg er en `event-listener` er registrert på kart-elementet som kjører samme funksjon når brukeren har flyttet på kartet.
+Diverse funksjoner er laget som kaller APIer for å finne informasjon om området som ses på. Disse brukes av en funksjon som oppdaterer markører på karted basert på filtre / kategorier brukeren velger. Denne funksjonen kjøres når en kategori velges. I tillegg er en `event-listener` er registrert på kart-elementet som kjører samme funksjon når brukeren har flyttet på kartet.
 
-En tekstboks kan spesifisere et sted brukeren ønsker å søke opp / hoppe til. Når søket gjennomføres flyttes kartet til stedet navngitt i tekstboksen, og `event-listener`en som trigges av flytting av kartet tar seg av å oppdatere markørene igjen.
+En tekstboks kan spesifisere et sted brukeren ønsker å søke opp / hoppe til. Når søket gjennomføres flyttes kartet til stedet navngitt i tekstboksen, og `event-listener`en som trigges av flytting av kartet tar seg av å kjøre oppdatering av markørene igjen.
 
 ## Bugs / caveats
 
