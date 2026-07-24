@@ -24,7 +24,13 @@ En funksjon er laget som oppdaterer markører på karted basert på filtre / kat
 
 ## Bugs / caveats
 
-Noen ganger ser plasseringen av markører på kartet mistenkelig forskjøvet ut. Etter litt undersøkelse tror jeg at det skjer fordi forespørselen til APIen som genererer markørene har en limit verdi. Dersom det er mange søkeresultater for området brukeren ser på, kan grensen nås før kartet er fyllt, og de første søkeresultatene er samlet rundt en mindre del av kartet. Da ser det ut som at søkeområdet er feil, men det er egentlig en høflig limit satt på API-forespørselen, og området som undersøkes har veldig mange søkeresultater.
+Noen ganger ser plasseringen av markører på kartet mistenkelig mangelfull ut. Etter litt undersøkelse tror jeg at det kan være to årsaker til dette:
+
+Fordi forespørselen til APIen som genererer markørene har en limit verdi, kan grensen nås før kartet fylles jevnt dersom det er velig mange søkeresultater i området. De første resultatene er da samlet rundt en mindre del av kartet selv om flere resultater ville fyllt et større område. Da ser det ut som at søkeområdet er feil.
+
+Det ser også ut som at APIen ikke alltid sender fullstendige svar, selv om http-responsen er i orden (fullstendig JSON string). Å flytte bittelitt på kartet (trigge ny forespørsel) fyller på med manglende markører uten å vesentlig endre søkeområdet, så det kan hende serveren av og til begrenser sin respons.
+
+Ellers vet jeg ikke hva som er årsaken til tidvis mangelfull markering av kartet. Jeg ser samme problemet ved bruk av andre tjenester (Finn, Propr, 1881, etc) hvor jeg flytter bittelitt på kartet og får nye resultater midt på bildet, så kanskje det har en naturlig forklaring i at APIene har en tidsbegrensning på generering av svar eller andre optimiseringer som av og til reduserer antallet søkeresultater. Eller kanskje har koden min en ordentlig face-palm type logisk feil.
 
 ## Distribusjon og sikkerhet
 
