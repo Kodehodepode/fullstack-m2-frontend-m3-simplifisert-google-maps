@@ -18,9 +18,19 @@ Demonstrerer burk av et rammeverk (Leaflet) og kombinasjon av flere APIer
 
 **Places** gir oss informasjon om steder i nærheten av et koordinat
 
+## Stack
+
+**Vite** pakker sammen og optimiserer assets, fjerner eventuell ubrukt kode, og flater ut sirkulære avhengigheter. Under bygging vurderes filstørrelser og bundles sammen avhengig av om størrelsene gjør det hensiktsmessig, for å redusere nettverkstraffikk.
+
+**GitHub Actions** bygger Vite-prosjektet ved push til repositoriet.
+
+Prosjektet publiseres til **GitHub Pages**.
+
 ## Gjennomføring
 
-En funksjon er laget som oppdaterer markører på karted basert på filtre / kategorier brukeren velger. Funksjonen kjøres når en kategori velges. En `event-listener` er registrert på kart-objektet som kjører funksjonen når brukeren har flyttet på kartet. En tekstboks kan spesifisere et sted brukeren ønsker å hoppe til. Når søket gjennomføres flyttes kartet til stedet navngitt i tekstboksen, og samme `event-listener` tar seg av å oppdatere markørene igjen.
+En funksjon er laget som benytter APIer for å finne informasjon om området som ses på. Funksjonen oppdaterer markører på karted basert på filtre / kategorier brukeren velger. Funksjonen kjøres når en kategori velges. I tillegg er en `event-listener` er registrert på kart-elementet som kjører samme funksjon når brukeren har flyttet på kartet.
+
+En tekstboks kan spesifisere et sted brukeren ønsker å søke opp / hoppe til. Når søket gjennomføres flyttes kartet til stedet navngitt i tekstboksen, og `event-listener`en som trigges av flytting av kartet tar seg av å oppdatere markørene igjen.
 
 ## Bugs / caveats
 
@@ -35,8 +45,6 @@ Ellers vet jeg ikke hva som er årsaken til tidvis mangelfull markering av karte
 ## Distribusjon og sikkerhet
 
 Prosjektet publiseres til GitHub Pages ved bruk av GitHub Actions som bygger siden med Vite.
-
-Vite pakker sammen og optimiserer assets, fjerner eventuell ubrukt kode, og flater ut sirkulære avhengigheter. Under bygging vurderes filstørrelser og bundles sammen avhengig av om størrelsene gjør det hensiktsmessig, for å redusere nettverkstraffikk.
 
 API-nøkler lagres lokalt som miljøvariabler i en `.env` fil, filen ignoreres ved pushing til GitHub via `.gitignore`, og nøkler gjøres tilgjengelig for GitHub Actions via GitHub Environment Secrets. Nøklene er ikke tilgjengelige i selve GitHub repositoiriet.
 
